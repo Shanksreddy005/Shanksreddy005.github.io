@@ -138,39 +138,136 @@
   .sec-title span { color: var(--teal); }
 
   /* ── SKILLS ── */
-  #skills { background: none; }
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.5rem;
-  }
-  .skill-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    padding: 1.75rem;
-    border-radius: 4px;
-    transition: border-color 0.25s, transform 0.25s;
-    position: relative; overflow: hidden;
-  }
-  .skill-card:hover { border-color: var(--teal); transform: translateY(-4px); }
-  .skill-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0;
-    height: 2px; background: linear-gradient(90deg, var(--teal), transparent);
-    opacity: 0; transition: opacity 0.25s;
-  }
-  .skill-card:hover::before { opacity: 1; }
-  .skill-icon { font-size: 1.6rem; margin-bottom: 1rem; }
-  .skill-name {
-    font-family: 'Syne', sans-serif; font-weight: 600;
-    font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem;
-  }
-  .skill-tags {
-    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem;
-  }
-  .tag {
-    font-size: 0.68rem; padding: 0.2rem 0.6rem; border-radius: 2px;
-    background: rgba(56,217,192,0.08); color: var(--teal);
-    border: 1px solid rgba(56,217,192,0.2); letter-spacing: 0.05em;
-  }
+
+#skills {
+  background: none;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.4rem;
+}
+
+.skill-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.02),
+      rgba(255,255,255,0.01)
+    );
+
+  border: 1px solid var(--border);
+
+  padding: 1.8rem;
+
+  border-radius: 10px;
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card:hover {
+  border-color: rgba(56,217,192,0.35);
+
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 36px rgba(0,0,0,0.25);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.015)
+    );
+}
+
+.skill-card::before {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--teal),
+      transparent
+    );
+
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-icon {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.skill-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+
+  font-size: 1rem;
+
+  color: #fff;
+
+  margin-bottom: 0.55rem;
+}
+
+.skill-desc {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+
+  margin-top: 1rem;
+}
+
+.tag {
+  font-size: 0.68rem;
+
+  padding: 0.24rem 0.65rem;
+
+  border-radius: 999px;
+
+  background: rgba(56,217,192,0.08);
+
+  color: var(--teal);
+
+  border: 1px solid rgba(56,217,192,0.18);
+
+  letter-spacing: 0.04em;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.tag:hover {
+  background: rgba(56,217,192,0.14);
+  transform: translateY(-2px);
+}
 
   /* ── PROJECTS ── */
   .projects-list { display: flex; flex-direction: column; gap: 2rem; }
@@ -212,6 +309,7 @@
     letter-spacing: 0.06em;
   }
 
+
   /* ── EXPERIENCE ── */
   .exp-card {
     background: var(--card-bg); border: 1px solid var(--border);
@@ -240,24 +338,109 @@
     content: '▸'; position: absolute; left: 0; color: var(--teal); font-size: 0.7rem; top: 0.5rem;
   }
 
-  /* ── CERTS ── */
-  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
-  .cert-card {
-    background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 4px; padding: 1.5rem;
-    transition: border-color 0.2s;
-  }
-  .cert-card:hover { border-color: var(--amber); }
-  .cert-issuer {
-    font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--amber); margin-bottom: 0.6rem;
-  }
-  .cert-name {
-    font-family: 'Syne', sans-serif; font-weight: 600;
-    font-size: 0.88rem; color: #fff; line-height: 1.4;
-  }
-  .cert-id { font-size: 0.65rem; color: var(--muted); margin-top: 0.5rem; }
+ /* ── CERTIFICATIONS ── */
 
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.cert-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.01)
+  );
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  padding: 1.5rem;
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(56,217,192,0.04),
+      transparent 55%
+    );
+
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(56,217,192,0.35);
+
+  box-shadow:
+    0 18px 35px rgba(0,0,0,0.25);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.015)
+    );
+}
+
+.cert-card:hover::before {
+  opacity: 1;
+}
+
+.cert-issuer {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--amber);
+
+  margin-bottom: 0.7rem;
+
+  position: relative;
+  z-index: 1;
+}
+
+.cert-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+
+  font-size: 0.95rem;
+  line-height: 1.45;
+
+  color: #fff;
+
+  position: relative;
+  z-index: 1;
+}
+
+.cert-id {
+  font-size: 0.7rem;
+  line-height: 1.5;
+
+  color: var(--muted);
+
+  margin-top: 0.65rem;
+
+  position: relative;
+  z-index: 1;
+}
   /* ── EDUCATION ── */
   .edu-list { display: flex; flex-direction: column; gap: 1rem; }
   .edu-card {
@@ -520,47 +703,152 @@
 <hr class="divider"/>
 
 <!-- SKILLS -->
+<!-- SKILLS -->
 <section id="skills">
-  <p class="sec-label reveal">Capabilities</p>
-  <h2 class="sec-title reveal">Technical <span>Skills</span></h2>
+
+  <p class="sec-label reveal">
+    Capabilities
+  </p>
+
+  <h2 class="sec-title reveal">
+    Technical <span>Skills</span>
+  </h2>
+
   <div class="skills-grid">
+
+    <!-- DATA ANALYTICS -->
     <div class="skill-card reveal">
-      <div class="skill-icon">🧠</div>
-      <div class="skill-name">Deep Learning</div>
-      <p style="color:var(--muted);font-size:0.8rem">CNNs, Transfer Learning, Multimodal Architectures, Attention Mechanisms</p>
-      <div class="skill-tags"><span class="tag">PyTorch</span><span class="tag">EfficientNet</span><span class="tag">ResNet</span></div>
-    </div>
-    <div class="skill-card reveal">
+
       <div class="skill-icon">📊</div>
-      <div class="skill-name">Machine Learning</div>
-      <p style="color:var(--muted);font-size:0.8rem">Classification, Regression, Feature Engineering, Hyperparameter Tuning</p>
-      <div class="skill-tags"><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">Keras</span></div>
+
+      <div class="skill-name">
+        Data Analytics
+      </div>
+
+      <p class="skill-desc">
+        Exploratory data analysis, statistical profiling, KPI reporting, trend analysis, and business insights generation.
+      </p>
+
+      <div class="skill-tags">
+        <span class="tag">SQL</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">EDA</span>
+        <span class="tag">Analytics</span>
+      </div>
+
     </div>
+
+    <!-- BACKEND -->
     <div class="skill-card reveal">
-      <div class="skill-icon">🔍</div>
-      <div class="skill-name">Explainable AI</div>
-      <p style="color:var(--muted);font-size:0.8rem">Visual and feature-level model interpretability for clinical settings</p>
-      <div class="skill-tags"><span class="tag">Grad-CAM</span><span class="tag">SHAP</span></div>
-    </div>
-    <div class="skill-card reveal">
+
       <div class="skill-icon">⚙️</div>
-      <div class="skill-name">Languages & Tools</div>
-      <p style="color:var(--muted);font-size:0.8rem">Production-grade code, version control, containerisation</p>
-      <div class="skill-tags"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">SQL</span><span class="tag">Docker</span><span class="tag">Git</span></div>
+
+      <div class="skill-name">
+        Backend Engineering
+      </div>
+
+      <p class="skill-desc">
+        REST APIs, asynchronous processing, automation workflows, and scalable backend systems development.
+      </p>
+
+      <div class="skill-tags">
+        <span class="tag">FastAPI</span>
+        <span class="tag">APIs</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Automation</span>
+      </div>
+
     </div>
+
+    <!-- MACHINE LEARNING -->
     <div class="skill-card reveal">
-      <div class="skill-icon">🗄️</div>
-      <div class="skill-name">Data & Databases</div>
-      <p style="color:var(--muted);font-size:0.8rem">Relational and NoSQL databases; data augmentation pipelines</p>
-      <div class="skill-tags"><span class="tag">MySQL</span><span class="tag">CouchDB</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div>
+
+      <div class="skill-icon">🧠</div>
+
+      <div class="skill-name">
+        Machine Learning
+      </div>
+
+      <p class="skill-desc">
+        Supervised learning, predictive analytics, classification workflows, and model evaluation using modern ML frameworks.
+      </p>
+
+      <div class="skill-tags">
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Regression</span>
+        <span class="tag">Classification</span>
+      </div>
+
     </div>
+
+    <!-- DATA VISUALIZATION -->
     <div class="skill-card reveal">
+
+      <div class="skill-icon">📈</div>
+
+      <div class="skill-name">
+        Data Visualization
+      </div>
+
+      <p class="skill-desc">
+        Interactive dashboards, KPI tracking, analytical reporting, and financial trend visualization.
+      </p>
+
+      <div class="skill-tags">
+        <span class="tag">Tableau</span>
+        <span class="tag">Recharts</span>
+        <span class="tag">Matplotlib</span>
+      </div>
+
+    </div>
+
+    <!-- CLOUD -->
+    <div class="skill-card reveal">
+
       <div class="skill-icon">☁️</div>
-      <div class="skill-name">Cloud & Visualisation</div>
-      <p style="color:var(--muted);font-size:0.8rem">Oracle Cloud services, interactive dashboards, web-based ML demos</p>
-      <div class="skill-tags"><span class="tag">OCI</span><span class="tag">Streamlit</span><span class="tag">Tableau</span></div>
+
+      <div class="skill-name">
+        Cloud & DevOps
+      </div>
+
+      <p class="skill-desc">
+        Cloud-based deployments, infrastructure fundamentals, and scalable application workflows.
+      </p>
+
+      <div class="skill-tags">
+        <span class="tag">AWS</span>
+        <span class="tag">EC2</span>
+        <span class="tag">S3</span>
+        <span class="tag">CloudFront</span>
+      </div>
+
     </div>
+
+    <!-- FULL STACK -->
+    <div class="skill-card reveal">
+
+      <div class="skill-icon">💻</div>
+
+      <div class="skill-name">
+        Full Stack Development
+      </div>
+
+      <p class="skill-desc">
+        Building responsive web applications and modern frontend interfaces integrated with backend APIs.
+      </p>
+
+      <div class="skill-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Tailwind</span>
+        <span class="tag">HTML/CSS</span>
+      </div>
+
+    </div>
+
   </div>
+
 </section>
 
 <hr class="divider"/>
@@ -568,28 +856,85 @@
 <!-- CERTIFICATIONS -->
 <section id="certs">
   <p class="sec-label reveal">Credentials</p>
-  <h2 class="sec-title reveal">Certifications</h2>
+
+  <h2 class="sec-title reveal">
+    Certifications
+  </h2>
+
   <div class="certs-grid">
+
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Amazon Web Services</div>
+
+      <div class="cert-name">
+        AWS Certified Solutions Architect — Associate
+      </div>
+
+      <div class="cert-id">
+        Score: 940 · 2026
+      </div>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="cert-issuer">HackerRank</div>
+
+      <div class="cert-name">
+        SQL (Advanced)
+      </div>
+
+      <div class="cert-id">
+        Advanced SQL Querying & Database Problem Solving · 2025
+      </div>
+    </div>
+
     <div class="cert-card reveal">
       <div class="cert-issuer">Oracle</div>
-      <div class="cert-name">OCI 2025 Certified AI Foundations Associate</div>
-      <div class="cert-id">ID: 101669033OCI25AICFA</div>
+
+      <div class="cert-name">
+        OCI 2025 Certified AI Foundations Associate
+      </div>
+
+      <div class="cert-id">
+        ID: 101669033OCI25AICFA
+      </div>
     </div>
+
     <div class="cert-card reveal">
       <div class="cert-issuer">Oracle</div>
-      <div class="cert-name">OCI 2025 Certified Foundations Associate</div>
-      <div class="cert-id">ID: 101669033OCI25FNDCFA</div>
+
+      <div class="cert-name">
+        OCI 2025 Certified Foundations Associate
+      </div>
+
+      <div class="cert-id">
+        ID: 101669033OCI25FNDCFA
+      </div>
     </div>
+
     <div class="cert-card reveal">
       <div class="cert-issuer">VIT &amp; CouchDB</div>
-      <div class="cert-name">Distributed Database System: CouchDB</div>
-      <div class="cert-id">Jul – Aug 2024</div>
+
+      <div class="cert-name">
+        Distributed Database System: CouchDB
+      </div>
+
+      <div class="cert-id">
+        Jul – Aug 2024
+      </div>
     </div>
+
     <div class="cert-card reveal">
       <div class="cert-issuer">TCS iON</div>
-      <div class="cert-name">Career Edge — Young Professional</div>
-      <div class="cert-id">Communication &amp; Workplace Readiness · 2025</div>
+
+      <div class="cert-name">
+        Career Edge — Young Professional
+      </div>
+
+      <div class="cert-id">
+        Communication &amp; Workplace Readiness · 2025
+      </div>
     </div>
+
   </div>
 </section>
 
